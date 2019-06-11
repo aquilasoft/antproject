@@ -5,7 +5,7 @@ class Register extends Component{
         return(
             <div className='register-wrapper'>
                 <h1>Как вы хотите зарегистрироваться</h1>
-                <from>
+                <form>
                    <a href='#facebook'>Войти через Facebook</a> 
                    <a href='#mail'>Зарегистироваться через эл. почту</a>
                 </form>

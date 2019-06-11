@@ -1,21 +1,41 @@
 import React, {Component} from 'react'
-import './Header.css'
+import {Layout, Menu, Icon} from 'antd';
 
+import './Header.scss'
+
+
+const Header = Layout.Header;
+const MenuItem = Menu.Item;
 class Header extends Component{
+
+
+    state={
+        current: ''
+    };
+
+    handleClick =e=>{
+        this.setState({
+            current: e.key
+        })
+    };
+
+
     render(){
         return(
-          <div className="header">  
-            <header className='app-header'>
-                    <ul 
-                        className="navbar">
-                        <li><img className="app-logo" alt="Cardosh"/></li>
-                        <li><a href="#search">Найти</a></li>
-                        <li><a href="#offer">Предложить поездку</a></li>
-                        <li><a href="#register">Регистрация</a></li>
-                        <li><a href="#login">Войти</a></li>
-                    </ul> 
-            </header> 
-           </div>
+            <Header className="app-header">
+                <div className="container">
+                    <div className="app-title">
+                        <h1>Cardosh App</h1>
+                    </div>
+                    <Menu
+                        onClick={this.handleClick}
+                        selectedKeys={this.state.current}
+                        mode="horizontal"
+                    >
+                        <MenuItem key="search"><Icon type="search" />Найти</MenuItem>
+                    </Menu>
+                </div>
+            </Header>
         )
     }
 }
